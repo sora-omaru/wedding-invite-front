@@ -1,0 +1,54 @@
+.section {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: 18px;
+}
+
+.form {
+  margin-top: 12px;
+  display: grid;
+  gap: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.input,
+.select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.error {
+  margin: 0;
+  color: crimson;
+}
+
+.button {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #222;
+  background: #fff;
+  cursor: pointer;
+}
+
+.buttonDisabled {
+  background: #eee;
+  cursor: not-allowed;
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding: 12px;
+    border-radius: 10px;
+  }
+}
+

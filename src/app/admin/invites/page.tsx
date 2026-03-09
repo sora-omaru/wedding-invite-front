@@ -1,4 +1,5 @@
 import { fetchAdminInvites } from "@/lib/api/adminInvites";
+import styles from "./page.module.scss";
 
 function attendanceLabel(a: number): string {
   if (a === 0) return "未回答";
@@ -19,40 +20,42 @@ export default async function AdminInvitesPage() {
   const absent = invites.filter((i) => i.attendance === 2).length;
 
   return (
-    <main style={{ maxWidth: 960, margin: "0 auto", padding: 16 }}>
-      <h1 style={{ margin: 0, fontSize: 22 }}>招待一覧（管理）</h1>
+    <main className={styles.page}>
+      <h1 className={styles.title}>招待一覧（管理）</h1>
 
-      <section style={{ marginTop: 12, border: "1px solid #ddd", borderRadius: 12, padding: 16 }}>
-        <p style={{ margin: 0 }}>
+      <section className={styles.summaryCard}>
+        <p className={styles.summaryText}>
           合計: {invites.length} / 未回答: {pending} / 出席: {attending} / 欠席: {absent}
         </p>
       </section>
 
-      <div style={{ height: 12 }} />
+      <div className={styles.spacer} />
 
-      <section style={{ border: "1px solid #ddd", borderRadius: 12, padding: 16 }}>
-        <table style={{ width: "100%", borderCollapse: "collapse" }}>
-          <thead>
-            <tr>
-              <th style={{ textAlign: "left", borderBottom: "1px solid #ddd", padding: "8px 0" }}>名前</th>
-              <th style={{ textAlign: "left", borderBottom: "1px solid #ddd", padding: "8px 0" }}>出欠</th>
-              <th style={{ textAlign: "left", borderBottom: "1px solid #ddd", padding: "8px 0" }}>同伴者</th>
-              <th style={{ textAlign: "left", borderBottom: "1px solid #ddd", padding: "8px 0" }}>トークン</th>
-              <th style={{ textAlign: "left", borderBottom: "1px solid #ddd", padding: "8px 0" }}>更新日時</th>
-            </tr>
-          </thead>
-          <tbody>
-            {invites.map((i) => (
-              <tr key={i.inviteToken}>
-                <td style={{ padding: "10px 0", borderBottom: "1px solid #f0f0f0" }}>{i.name ?? "未入力"}</td>
-                <td style={{ padding: "10px 0", borderBottom: "1px solid #f0f0f0" }}>{attendanceLabel(i.attendance)}</td>
-                <td style={{ padding: "10px 0", borderBottom: "1px solid #f0f0f0" }}>{i.companionsText ?? "未入力"}</td>
-                <td style={{ padding: "10px 0", borderBottom: "1px solid #f0f0f0", fontFamily: "monospace" }}>{i.inviteToken}</td>
-                <td style={{ padding: "10px 0", borderBottom: "1px solid #f0f0f0" }}>{formatJst(i.updatedAt)}</td>
+      <section className={styles.tableCard}>
+        <div className={styles.tableScroll}>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th className={styles.headCell}>名前</th>
+                <th className={styles.headCell}>出欠</th>
+                <th className={styles.headCell}>同伴者</th>
+                <th className={styles.headCell}>トークン</th>
+                <th className={styles.headCell}>更新日時</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {invites.map((i) => (
+                <tr key={i.inviteToken}>
+                  <td className={styles.bodyCell}>{i.name ?? "未入力"}</td>
+                  <td className={styles.bodyCell}>{attendanceLabel(i.attendance)}</td>
+                  <td className={styles.bodyCell}>{i.companionsText ?? "未入力"}</td>
+                  <td className={`${styles.bodyCell} ${styles.tokenCell}`}>{i.inviteToken}</td>
+                  <td className={styles.bodyCell}>{formatJst(i.updatedAt)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
     </main>
   );

@@ -1,0 +1,73 @@
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+}
+
+.summaryCard,
+.tableCard {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.summaryCard {
+  margin-top: 12px;
+}
+
+.summaryText {
+  margin: 0;
+}
+
+.spacer {
+  height: 12px;
+}
+
+.tableScroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+.headCell {
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  padding: 8px 10px;
+  white-space: nowrap;
+}
+
+.bodyCell {
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  white-space: nowrap;
+}
+
+.tokenCell {
+  font-family: monospace;
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding: 12px;
+  }
+
+  .summaryCard,
+  .tableCard {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .headCell,
+  .bodyCell {
+    font-size: 14px;
+  }
+}

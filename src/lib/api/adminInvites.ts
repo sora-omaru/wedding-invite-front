@@ -6,6 +6,7 @@ export type AdminInviteListItemDto = {
   kidsText: string | null;
   createdAt: string;
   updatedAt: string;
+  allergiesText: string | null;
 };
 
 function getAppOrigin(): string {

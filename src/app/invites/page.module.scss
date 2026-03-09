@@ -1,0 +1,41 @@
+.main {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+}
+
+.description {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.form {
+  margin-top: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #222;
+  background: #fff;
+  cursor: pointer;
+}
+
+.buttonDisabled {
+  background: #eee;
+  cursor: not-allowed;
+}
+

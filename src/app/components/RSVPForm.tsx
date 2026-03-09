@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { InviteResponseDto } from "@/types/invite";
 import { patchInvite, toAttendance } from "@/lib/api/invites";
+import styles from "./RSVPForm.module.scss";
 
 type Props = {
   token: string;
@@ -41,25 +42,25 @@ export default function RSVPForm({ token, initialInvite }: Props) {
   }
 
   return (
-    <section style={{ border: "1px solid #ddd", borderRadius: 12, padding: 16 }}>
-      <h2 style={{ margin: 0, fontSize: 18 }}>出欠のご回答</h2>
+    <section className={styles.section}>
+      <h2 className={styles.title}>出欠のご回答</h2>
 
-      <form onSubmit={onSubmit} style={{ marginTop: 12, display: "grid", gap: 12 }}>
-        <label style={{ display: "grid", gap: 6 }}>
+      <form onSubmit={onSubmit} className={styles.form}>
+        <label className={styles.field}>
           お名前
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            style={{ padding: 10, borderRadius: 8, border: "1px solid #ccc" }}
+            className={styles.input}
           />
         </label>
 
-        <label style={{ display: "grid", gap: 6 }}>
+        <label className={styles.field}>
           出欠
           <select
             value={attendance}
             onChange={(e) => setAttendance(e.target.value)}
-            style={{ padding: 10, borderRadius: 8, border: "1px solid #ccc" }}
+            className={styles.select}
           >
             <option value="0">未回答</option>
             <option value="1">出席</option>
@@ -67,27 +68,21 @@ export default function RSVPForm({ token, initialInvite }: Props) {
           </select>
         </label>
 
-        <label style={{ display: "grid", gap: 6 }}>
+        <label className={styles.field}>
           同伴者（自由入力）
           <input
             value={companionsText}
             onChange={(e) => setCompanionsText(e.target.value)}
-            style={{ padding: 10, borderRadius: 8, border: "1px solid #ccc" }}
+            className={styles.input}
           />
         </label>
 
-        {error ? <p style={{ margin: 0, color: "crimson" }}>{error}</p> : null}
+        {error ? <p className={styles.error}>{error}</p> : null}
 
         <button
           type="submit"
           disabled={saving}
-          style={{
-            padding: 12,
-            borderRadius: 10,
-            border: "1px solid #222",
-            background: saving ? "#eee" : "#fff",
-            cursor: saving ? "not-allowed" : "pointer",
-          }}
+          className={`${styles.button} ${saving ? styles.buttonDisabled : ""}`.trim()}
         >
           {saving ? "送信中..." : "送信する"}
         </button>
