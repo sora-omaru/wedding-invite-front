@@ -6,10 +6,12 @@ export type InviteResponseDto = {
   attendance: Attendance;
   name: string | null;
   companionsText: string | null;
+  allergiesList: string[];
 };
 
 export type InviteUpdateRequestDto = {
   attendance: Attendance;
   name: string | null;
   companionsText: string | null;
+  allergiesList: string[];
 };

@@ -20,6 +20,47 @@
   gap: 6px;
 }
 
+.allergyFieldset {
+  margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.legend {
+  padding: 0 4px;
+}
+
+.expander {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.allergyPanel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.2s ease;
+}
+
+.allergyPanelOpen {
+  grid-template-rows: 1fr;
+}
+
+.allergyList {
+  margin-top: 10px;
+  overflow: hidden;
+  display: grid;
+  gap: 8px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .input,
 .select {
   padding: 10px;
@@ -51,4 +92,3 @@
     border-radius: 10px;
   }
 }
-

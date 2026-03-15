@@ -7,6 +7,7 @@ type InviteResponseDto = {
   attendance: number;
   name: string | null;
   companionsText: string | null;
+  allergiesList: string[];
 };
 
 export default function AdminClient() {

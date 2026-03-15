@@ -1,5 +1,6 @@
 import { fetchAdminInvites } from "@/lib/api/adminInvites";
 import styles from "./page.module.scss";
+import { ALLERGY_FOOD } from "@/app/components/constans/allergies";
 
 function attendanceLabel(a: number): string {
   if (a === 0) return "未回答";
@@ -10,6 +11,14 @@ function attendanceLabel(a: number): string {
 
 function formatJst(iso: string): string {
   return new Date(iso).toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" });
+}
+
+//アレルギー情報変換（英語->日本語）
+function allergiesLabel(value: string): string {
+  const allergiesFood = ALLERGY_FOOD.find(
+    (allergies) => allergies.value === value,
+  );
+  return allergiesFood ? allergiesFood.label : value;
 }
 
 export default async function AdminInvitesPage() {
@@ -25,7 +34,8 @@ export default async function AdminInvitesPage() {
 
       <section className={styles.summaryCard}>
         <p className={styles.summaryText}>
-          合計: {invites.length} / 未回答: {pending} / 出席: {attending} / 欠席: {absent}
+          合計: {invites.length} / 未回答: {pending} / 出席: {attending} / 欠席:{" "}
+          {absent}
         </p>
       </section>
 
@@ -47,9 +57,15 @@ export default async function AdminInvitesPage() {
               {invites.map((i) => (
                 <tr key={i.inviteToken}>
                   <td className={styles.bodyCell}>{i.name ?? "未入力"}</td>
-                  <td className={styles.bodyCell}>{attendanceLabel(i.attendance)}</td>
-                  <td className={styles.bodyCell}>{i.companionsText ?? "未入力"}</td>
-                  <td className={`${styles.bodyCell} ${styles.tokenCell}`}>{i.inviteToken}</td>
+                  <td className={styles.bodyCell}>
+                    {attendanceLabel(i.attendance)}
+                  </td>
+                  <td className={styles.bodyCell}>
+                    {i.companionsText ?? "未入力"}
+                  </td>
+                  <td className={`${styles.bodyCell} ${styles.tokenCell}`}>
+                    {i.inviteToken}
+                  </td>
                   <td className={styles.bodyCell}>{formatJst(i.updatedAt)}</td>
                 </tr>
               ))}
