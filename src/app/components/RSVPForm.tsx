@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { InviteResponseDto } from "@/types/invite";
 import { patchInvite, toAttendance } from "@/lib/api/invites";
@@ -32,6 +32,18 @@ export default function RSVPForm({ token, initialInvite }: Props) {
   const [isAllergyOpen, setIsAllergyOpen] = useState(
     (initialInvite.allergiesList ?? []).length > 0,
   );
+
+  useEffect(() => {
+    setName(initialInvite.name ?? "");
+    setAttendance(String(initialInvite.attendance));
+    setCompanionsText(initialInvite.companionsText ?? "");
+    setAllergiesList(initialInvite.allergiesList ?? "");
+  }, [
+    initialInvite.name,
+    initialInvite.attendance,
+    initialInvite.companionsText,
+    initialInvite.allergiesList,
+  ]);
 
   function toggleAllergy(value: string) {
     setAllergiesList((prev) => {
