@@ -49,6 +49,7 @@ export default async function AdminInvitesPage() {
                 <th className={styles.headCell}>名前</th>
                 <th className={styles.headCell}>出欠</th>
                 <th className={styles.headCell}>同伴者</th>
+                <th className={styles.headCell}>アレルギー情報</th>
                 <th className={styles.headCell}>トークン</th>
                 <th className={styles.headCell}>更新日時</th>
               </tr>
@@ -62,6 +63,9 @@ export default async function AdminInvitesPage() {
                   </td>
                   <td className={styles.bodyCell}>
                     {i.companionsText ?? "未入力"}
+                  </td>
+                  <td className={styles.bodyCell}>
+                    {i.allergiesText ?? "未入力"}
                   </td>
                   <td className={`${styles.bodyCell} ${styles.tokenCell}`}>
                     {i.inviteToken}

@@ -19,7 +19,8 @@ export default async function InvitePage({ params }: Props) {
 
   return (
     <main className={styles.main}>
-      <h1 className={styles.title}>結婚式のご案内</h1>
+      <h1></h1>
+      <h2 className={styles.title}>結婚式のご案内</h2>
 
       <section className={styles.summary}>
         <p className={`${styles.summaryLine} ${styles.summaryLineFirst}`}>
@@ -27,7 +28,7 @@ export default async function InvitePage({ params }: Props) {
         </p>
         <p className={styles.summaryLine}>お名前: {invite.name ?? "未入力"}</p>
         <p className={styles.summaryLine}>
-          出欠:{" "}
+          出欠:
           {invite.attendance === 1
             ? "出席"
             : invite.attendance === 2

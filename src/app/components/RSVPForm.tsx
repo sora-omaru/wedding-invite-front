@@ -33,6 +33,8 @@ export default function RSVPForm({ token, initialInvite }: Props) {
     (initialInvite.allergiesList ?? []).length > 0,
   );
 
+  //アレルギー情報を更新した際に、リストをリセットし再読み込み。
+  //依存配列はアレルギー情報のみでいいが念のため追加
   useEffect(() => {
     setName(initialInvite.name ?? "");
     setAttendance(String(initialInvite.attendance));
