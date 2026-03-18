@@ -1,8 +1,9 @@
 import Link from "next/link";
+import styles from "./page.module.scss";
 
 export default function Home() {
   return (
-    <main style={{ maxWidth: 720, margin: "0 auto", padding: 16, display: "grid", gap: 12 }}>
+    <main className={styles.main}>
       <Link href="/invites">
         <button>招待ページへ</button>
       </Link>

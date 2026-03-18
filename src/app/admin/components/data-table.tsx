@@ -6,6 +6,7 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
+import styles from "./data-table.module.scss";
 
 type DataTableProps<TData, TValue> = {
   columns: ColumnDef<TData, TValue>[];
@@ -23,28 +24,15 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <section
-      style={{
-        border: "1px solid #ddd",
-        borderRadius: 12,
-        padding: 16,
-      }}
-    >
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+    <section className={styles.section}>
+      <table className={styles.table}>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => {
             return (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <th
-                      key={header.id}
-                      style={{
-                        textAlign: "left",
-                        borderBottom: "1px solid #ddd",
-                        padding: "8px 0",
-                      }}
-                    >
+                    <th key={header.id} className={styles.headCell}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -66,14 +54,7 @@ export function DataTable<TData, TValue>({
                 <tr key={row.id}>
                   {row.getVisibleCells().map((cell) => {
                     return (
-                      <td
-                        key={cell.id}
-                        style={{
-                          padding: "10px 0",
-                          borderBottom: "1px solid #f0f0f0",
-                          verticalAlign: "top",
-                        }}
-                      >
+                      <td key={cell.id} className={styles.bodyCell}>
                         {flexRender(
                           cell.column.columnDef.cell,
                           cell.getContext(),
@@ -86,14 +67,7 @@ export function DataTable<TData, TValue>({
             })
           ) : (
             <tr>
-              <td
-                colSpan={columns.length}
-                style={{
-                  padding: "16px 0",
-                  textAlign: "center",
-                  color: "#666",
-                }}
-              >
+              <td colSpan={columns.length} className={styles.emptyCell}>
                 データがありません
               </td>
             </tr>

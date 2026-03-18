@@ -19,8 +19,39 @@
 
 .summaryLine {
   margin: 8px 0 0;
+  word-break: break-word;
 }
 
+.Introduce_content {
+  text-align: center;
+
+  & .IntroduceTitle_style {
+    font-family: var(--font-Best-Light);
+  }
+
+  & .name_styles {
+    font-family: var(--font-Adirek);
+  }
+
+  .couple_ing_style {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+  }
+  .coupleImage {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.greetingText {
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 2;
+  font-size: 16px;
+}
 .summaryLineFirst {
   margin-top: 0;
 }
@@ -32,6 +63,10 @@
 @media (max-width: 720px) {
   .main {
     padding: 12px;
+  }
+
+  .title {
+    font-size: 20px;
   }
 
   .summary {

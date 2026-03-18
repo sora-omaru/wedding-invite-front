@@ -4,15 +4,24 @@
   --app-background-position: center;
   --app-background-repeat: no-repeat;
   --app-background-attachment: fixed;
+  --font-Adirek: "Adirek Slab", serif;
+  --font-Best-Light: "Best Light", serif;
 }
 
-html {
-  min-height: 100%;
-  background-image: var(--app-background-image);
-  background-size: var(--app-background-size);
-  background-position: var(--app-background-position);
-  background-repeat: var(--app-background-repeat);
-  background-attachment: var(--app-background-attachment);
+@font-face {
+  font-family: "Best Light";
+  src:
+    url("/fonts/Best-Light.woff2") format("woff2"),
+    url("/fonts/Best-Light.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Adirek Slab";
+  src:
+    url("/fonts/AdirekSlab-Regular.woff2") format("woff2"),
+    url("/fonts/AdirekSlab-Regular.woff") format("woff");
+  font-display: swap;
 }
 
 body,
@@ -27,4 +36,5 @@ body,
 body {
   margin: 0;
   min-height: 100vh;
+  color: #523a3a;
 }

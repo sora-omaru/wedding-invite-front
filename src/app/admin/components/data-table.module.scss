@@ -1,0 +1,28 @@
+.section {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.headCell {
+  padding: 8px 0;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.bodyCell {
+  padding: 10px 0;
+  vertical-align: top;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.emptyCell {
+  padding: 16px 0;
+  text-align: center;
+  color: #666;
+}

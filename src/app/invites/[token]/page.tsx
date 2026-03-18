@@ -2,6 +2,7 @@ import RSVPForm from "@/app/components/RSVPForm";
 import { fetchInvite } from "@/lib/api/invites";
 import styles from "./page.module.scss";
 import { ALLERGY_FOOD } from "@/app/components/constans/allergies";
+import Image from "next/image";
 
 type Props = { params: { token: string } };
 
@@ -19,7 +20,41 @@ export default async function InvitePage({ params }: Props) {
 
   return (
     <main className={styles.main}>
-      <h1></h1>
+      <div className={styles.Introduce_content}>
+        <h1 className={styles.IntroduceTitle_style}>Wedding Invitation</h1>
+        <p className={styles.name_styles}>SORA　KAORI</p>
+        <div className={styles.couple_ing_style}>
+          <Image
+            src="/images/IMG_7897 (1).jpg"
+            alt="新郎新婦"
+            width={600}
+            height={450}
+            className={styles.coupleImage}
+          />
+        </div>
+        <section className={styles.greeting}>
+          <p className={styles.greetingTitle}>ご挨拶</p>
+
+          <p className={styles.greetingText}>
+            拝啓
+            <br />
+            このたび 私たちは結婚式を挙げる運びとなりました。
+            <br />
+            これまで支えてくださった皆さまへ感謝の気持ちを込めて、
+            <br />
+            ささやかな式ではありますが
+            <br />
+            晴れの日を皆さまとご一緒できましたら嬉しく思います。
+            <br />
+            おいそがしいところ恐れ入りますが、
+            <br />
+            ぜひご出席いただけましたら幸いです。
+            <br />
+            <br />
+            敬具
+          </p>
+        </section>
+      </div>
       <h2 className={styles.title}>結婚式のご案内</h2>
 
       <section className={styles.summary}>

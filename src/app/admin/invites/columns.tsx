@@ -1,6 +1,7 @@
 "use client"
 
 import { ColumnDef } from "@tanstack/react-table"
+import styles from "./columns.module.scss"
 
 export type AdminInviteRow = {
   inviteToken: string
@@ -74,11 +75,7 @@ export const columns: ColumnDef<AdminInviteRow>[] = [
     accessorKey: "inviteToken",
     header: "トークン",
     cell: ({ row }) => {
-      return (
-        <span style={{ fontFamily: "monospace" }}>
-          {row.original.inviteToken}
-        </span>
-      )
+      return <span className={styles.token}>{row.original.inviteToken}</span>
     },
   },
   {

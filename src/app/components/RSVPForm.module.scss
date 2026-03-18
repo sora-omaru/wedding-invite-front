@@ -93,4 +93,19 @@
     padding: 12px;
     border-radius: 10px;
   }
+
+  .title {
+    font-size: 17px;
+  }
+
+  .form {
+    gap: 10px;
+  }
+
+  .input,
+  .select,
+  .button {
+    width: 100%;
+    box-sizing: border-box;
+  }
 }

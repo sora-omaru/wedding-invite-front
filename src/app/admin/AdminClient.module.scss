@@ -1,0 +1,53 @@
+.section {
+  margin-top: 12px;
+}
+
+.primaryButton,
+.secondaryButton {
+  background: #fff;
+  cursor: pointer;
+}
+
+.primaryButton {
+  padding: 12px;
+  border: 1px solid #222;
+  border-radius: 10px;
+}
+
+.secondaryButton {
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid #333;
+  border-radius: 8px;
+}
+
+.error {
+  color: crimson;
+}
+
+.resultCard {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+.resultLine {
+  margin: 0;
+}
+
+.resultUrl {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 720px) {
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+
+  .resultCard {
+    padding: 12px;
+  }
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import styles from "./AdminClient.module.scss";
 
 type InviteResponseDto = {
   inviteToken: string;
@@ -34,42 +35,19 @@ export default function AdminClient() {
   const inviteUrl = created ? `${appBase}/invites/${created.inviteToken}` : "";
 
   return (
-    <section style={{ marginTop: 12 }}>
-      <button
-        onClick={onCreate}
-        style={{
-          padding: 12,
-          borderRadius: 10,
-          border: "1px solid #222",
-          background: "#fff",
-          cursor: "pointer",
-        }}
-      >
+    <section className={styles.section}>
+      <button onClick={onCreate} className={styles.primaryButton}>
         招待を1件作成
       </button>
 
-      {error ? <p style={{ color: "crimson" }}>{error}</p> : null}
+      {error ? <p className={styles.error}>{error}</p> : null}
 
       {created ? (
-        <div
-          style={{
-            marginTop: 16,
-            border: "1px solid #ddd",
-            borderRadius: 12,
-            padding: 16,
-          }}
-        >
-          <p style={{ margin: 0 }}>token: {created.inviteToken}</p>
-          <p style={{ marginTop: 8, marginBottom: 0 }}>招待URL: {inviteUrl}</p>
+        <div className={styles.resultCard}>
+          <p className={styles.resultLine}>token: {created.inviteToken}</p>
+          <p className={styles.resultUrl}>招待URL: {inviteUrl}</p>
           <button
-            style={{
-              marginTop: 8,
-              padding: 8,
-              borderRadius: 8,
-              border: "1px solid #333",
-              background: "#fff",
-              cursor: "pointer",
-            }}
+            className={styles.secondaryButton}
             onClick={() => navigator.clipboard.writeText(inviteUrl)}
           >
             URLをコピー

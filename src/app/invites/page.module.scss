@@ -39,3 +39,8 @@
   cursor: not-allowed;
 }
 
+@media (max-width: 720px) {
+  .main {
+    padding: 12px;
+  }
+}
