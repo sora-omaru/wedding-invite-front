@@ -49,9 +49,13 @@
 .greetingText {
   max-width: 480px;
   margin: 0 auto;
-  line-height: 2;
-  font-size: 16px;
+
+  font-size: 13px;
 }
+.greetingText p {
+  margin-bottom: 0.8rem;
+}
+
 .summaryLineFirst {
   margin-top: 0;
 }
