@@ -33,7 +33,7 @@
     font-family: var(--font-Adirek);
   }
 
-  .couple_ing_style {
+  .couple_img_style {
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
@@ -45,6 +45,17 @@
     display: block;
   }
 }
+
+ .map_img_style{
+  width: 100%;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+ }
+ .mapImage {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 
 .greetingText {
   max-width: 480px;

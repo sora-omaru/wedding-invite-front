@@ -32,7 +32,7 @@ export default async function InvitePage({ params }: Props) {
       <div className={styles.Introduce_content}>
         <h1 className={styles.IntroduceTitle_style}>Wedding Invitation</h1>
         <p className={styles.name_styles}>SORA　KAORI</p>
-        <div className={styles.couple_ing_style}>
+        <div className={styles.couple_img_style}>
           <Image
             src="/images/IMG_7897 (1).jpg"
             alt="新郎新婦"
@@ -67,6 +67,16 @@ export default async function InvitePage({ params }: Props) {
             </>
           ))}
         </dl>
+      </div>
+
+      <div className={styles.map_img_style}>
+         <Image
+            src="/images/mapImg.png"
+            alt="地図"
+            width={600}
+            height={450}
+            className={styles.mapImage}
+          />
       </div>
       <h2 className={styles.title}>結婚式のご案内</h2>
 
