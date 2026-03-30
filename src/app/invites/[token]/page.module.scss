@@ -49,11 +49,29 @@
 .greetingText {
   max-width: 480px;
   margin: 0 auto;
-
-  font-size: 97%;
+  font-size: 88%;
 }
 .greetingText p {
   margin-bottom: 0.8rem;
+}
+
+.information {
+  text-align: center;
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+
+
+  dt {
+    font-weight: bold;
+  }
+
+  dd {
+    margin: 0;
+  }
 }
 
 .summaryLineFirst {

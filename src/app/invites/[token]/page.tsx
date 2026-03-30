@@ -9,6 +9,15 @@ type Props = { params: { token: string } };
 export default async function InvitePage({ params }: Props) {
   const invite = await fetchInvite(params.token);
 
+  //Informationの内容
+  const infoList = [
+    { label: "日付", value: "2026年5月6日" },
+    { label: "会場", value: "南青山サンタキアラ教会" },
+    { label: "URL", value: "https://wedding.escrit.jp/place/santa-chiara/" },
+    { label: "住所", value: "〒107-0062 東京都港区南青山５丁目５−２４" },
+    { label: "TEL", value: " 0120-951-645" },
+  ];
+
   //アレルギー情報変換（英語->日本語）
   const allergiesFood = invite.allergiesList
     .map(
@@ -46,6 +55,18 @@ export default async function InvitePage({ params }: Props) {
             敬具
           </p>
         </section>
+      </div>
+
+      <div>
+        <h2>information</h2>
+        <dl>
+          {infoList.map((info) => (
+            <>
+              <dt key={info.label}>{info.label}</dt>
+              <dd>{info.value}</dd>
+            </>
+          ))}
+        </dl>
       </div>
       <h2 className={styles.title}>結婚式のご案内</h2>
 
