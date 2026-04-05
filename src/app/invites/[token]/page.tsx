@@ -32,6 +32,7 @@ export default async function InvitePage({ params }: Props) {
       <div className={styles.Introduce_content}>
         <h1 className={styles.IntroduceTitle_style}>Wedding Invitation</h1>
         <p className={styles.name_styles}>SORA　KAORI</p>
+      {/* hero画像 */}
         <div className={styles.couple_img_style}>
           <Image
             src="/images/IMG_7897 (1).jpg"
@@ -99,7 +100,7 @@ export default async function InvitePage({ params }: Props) {
         <p className={styles.summaryLine}>アレルギー情報: {allergiesFood}</p>
       </section>
 
-      <div className={styles.spacer} />
+      {/* <div className={styles.spacer} /> */}
 
       <RSVPForm token={params.token} initialInvite={invite} />
     </main>
