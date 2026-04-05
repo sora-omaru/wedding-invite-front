@@ -9,6 +9,55 @@
   font-size: 22px;
 }
 
+.profileList {
+  margin: 5% 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background-color: #ede2e2;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.photo {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #5a4a4a;
+}
+
+.message {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #6d5a5a;
+}
+
+.reverse .content {
+  text-align: right;
+}
+
 .summary {
   margin-top: 12px;
   border: 1px solid #ddd;
@@ -20,6 +69,27 @@
 .summaryLine {
   margin: 8px 0 0;
   word-break: break-word;
+}
+
+.info {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1% 5%;
+  margin: 2% 0 4%;
+}
+.timeBox {
+  font-family: var(--font-Best-Light);
+  background-color: white;
+  border-radius: 10px;
+  padding: 1% 2%;
+  margin: 5%;
+  h2 {
+    margin-top: 7%;
+  }
+}
+
+.time_img_style {
+  margin-top: 0%;
 }
 
 .Introduce_content {
@@ -46,21 +116,17 @@
   }
 }
 
- .map_img_style{
-  width: 100%;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
- }
- .mapImage {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+.mapImage {
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: 0% auto;
+}
 
 .greetingText {
   max-width: 480px;
   margin: 0 auto;
-  font-size: 88%;
+  font-size: 84%;
 }
 .greetingText p {
   margin-bottom: 0.8rem;
@@ -73,8 +139,6 @@
     font-size: 28px;
     margin-bottom: 20px;
   }
-
-
 
   dt {
     font-weight: bold;
