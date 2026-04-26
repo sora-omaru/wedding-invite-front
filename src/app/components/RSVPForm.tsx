@@ -77,7 +77,7 @@ export default function RSVPForm({ token, initialInvite }: Props) {
         attendance: toAttendance(attendance),
         name: name.trim() ? name.trim() : null,
         companionsText: companionsText.trim() ? companionsText.trim() : null,
-        allergiesList,
+        allergiesList: isAllergyOpen ? allergiesList : [],
       });
 
       router.refresh();
