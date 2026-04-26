@@ -39,7 +39,7 @@ export default function RSVPForm({ token, initialInvite }: Props) {
     setName(initialInvite.name ?? "");
     setAttendance(String(initialInvite.attendance));
     setCompanionsText(initialInvite.companionsText ?? "");
-    setAllergiesList(initialInvite.allergiesList ?? "");
+    setAllergiesList(initialInvite.allergiesList ?? []);
   }, [
     initialInvite.name,
     initialInvite.attendance,
