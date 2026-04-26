@@ -15,8 +15,7 @@ export default function AdminClient() {
   const [created, setCreated] = useState<InviteResponseDto | null>(null);
   const [error, setError] = useState("");
 
-  const appBase =
-    process.env.NEXT_PUBLIC_APP_BASE_URL ?? "http://localhost:3000";
+  const appBase = process.env.NEXT_PUBLIC_APP_ORIGIN ?? "http://localhost:3000";
 
   async function onCreate() {
     setError("");
