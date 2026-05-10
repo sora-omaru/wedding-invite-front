@@ -72,6 +72,13 @@ export default function RSVPForm({ token, initialInvite }: Props) {
     setSaving(true);
     setError("");
 
+    if (allergiesList.length === 0) {
+      setIsAllergyOpen(true);
+      setError("アレルギーを選択してください。該当なしの場合は「なし」を選択してください。");
+      setSaving(false);
+      return;
+    }
+
     try {
       await patchInvite(token, {
         attendance: toAttendance(attendance),
@@ -157,7 +164,7 @@ export default function RSVPForm({ token, initialInvite }: Props) {
           </div>
         </fieldset>
 
-        {error ? <p className={styles.error}>{error}</p> : null}
+        {error ? <p className={styles.error}>エラーです：{error}</p> : null}
 
         <button
           type="submit"
