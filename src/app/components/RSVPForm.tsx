@@ -14,7 +14,7 @@ type Props = {
 
 export default function RSVPForm({ token, initialInvite }: Props) {
   const router = useRouter();
-
+  const [isOpen, setIsOpen] = useState(false); //ポップアップ用の状態保持
   const [name, setName] = useState(initialInvite.name ?? "");
   const [allergiesList, setAllergiesList] = useState<string[]>(
     initialInvite.allergiesList ?? [],
@@ -74,7 +74,9 @@ export default function RSVPForm({ token, initialInvite }: Props) {
 
     if (allergiesList.length === 0) {
       setIsAllergyOpen(true);
-      setError("アレルギーを選択してください。該当なしの場合は「なし」を選択してください。");
+      setError(
+        "アレルギーを選択してください。該当なしの場合は「なし」を選択してください。",
+      );
       setSaving(false);
       return;
     }
@@ -93,6 +95,11 @@ export default function RSVPForm({ token, initialInvite }: Props) {
     } finally {
       setSaving(false);
     }
+    setIsOpen(true); //popup表示
+    setTimeout(() => {
+      //3秒後にpopupを閉じる
+      setIsOpen(false);
+    }, 3000);
   }
   return (
     <section className={styles.section}>
@@ -165,14 +172,30 @@ export default function RSVPForm({ token, initialInvite }: Props) {
         </fieldset>
 
         {error ? <p className={styles.error}>エラーです：{error}</p> : null}
-
-        <button
-          type="submit"
-          disabled={saving}
-          className={`${styles.button} ${saving ? styles.buttonDisabled : ""}`.trim()}
-        >
-          {saving ? "送信中..." : "送信する"}
-        </button>
+        <div>
+          <button
+            type="submit"
+            disabled={saving}
+            className={`${styles.button} ${saving ? styles.buttonDisabled : ""}`.trim()}
+          >
+            {saving ? "送信中..." : "送信する"}
+          </button>
+          {isOpen && (
+            <div
+              style={{
+                position: "fixed",
+                top: "20px",
+                right: "20px",
+                padding: "16px",
+                background: "#333",
+                color: "#fff",
+                borderRadius: "8px",
+              }}
+            >
+              送信しました！ご回答ありがとうございます。
+            </div>
+          )}
+        </div>
       </form>
     </section>
   );
